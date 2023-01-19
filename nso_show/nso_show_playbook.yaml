@@ -1,0 +1,24 @@
+#nso_show_playbook.yaml
+#Show devices including operational data
+---
+- name: show NSO Data
+  hosts: localhost
+  strategy: debug
+  tasks:
+  - include_vars: nso_var.yaml
+  - debug:  msg="Opening URL --- http://{{ nso_ip }}:{{ nso_port }}/jsonrpc" 
+  - debug: msg="{{ username }}:{{ password }}"
+  - debug: msg="{{ device_name }}"
+  - name: Show admin-state of IOS Device
+    cisco.nso.nso_show:
+      url: http://{{ nso_ip }}:{{ nso_port }}/jsonrpc
+      username: "{{ username }}"
+      password: "{{ password }}"
+      path: /ncs:devices/device{{ device_name }}/state/admin-state
+      operational: false
+    register: result    
+  - name: Display the Result
+    debug:
+      var: result
+
+
