@@ -1,0 +1,5 @@
+#requirements_for_NSO.yaml
+---
+collections:
+# With collection name
+- cisco.nso
