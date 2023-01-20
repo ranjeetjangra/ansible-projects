@@ -4,6 +4,7 @@ This project is to check the status of Cisco IOS device running connected to Cis
 
 ***Setup Architecture***
 
+https://github.com/ranjeetjangra/ansible-projects/blob/main/nso_show/setup_architecture.png
 
 ***Playbook Running Output***
 
