@@ -1,0 +1,40 @@
+---
+#Inventory for DevNet CML Lab Devices
+devnetcml:
+  children:
+    network:
+      children:
+        asa:
+          hosts:
+            edge-firewall01:
+              ansible_host: 10.10.20.171
+        ios:
+          hosts:
+            edge-sw01:
+              ansible_host: 10.10.20.172        
+        iosxr:
+          hosts:
+            core-rtr03:
+              ansible_host: 10.10.20.173
+            core-rtr04:
+              ansible_host: 10.10.20.174
+        iosxe:
+          hosts:
+              dist-rtr01:
+                ansible_host: 10.10.20.175
+              dist-rtr02:
+                ansible_host: 10.10.20.176
+        nxos:
+          hosts:
+            dist-sw01:
+              ansible_host: 10.10.20.177	    
+    linuxservers:
+      hosts:
+        internet-host01:
+          ansible_host: 10.10.20.182
+        inside-host01:
+          ansible_host: 10.10.20.179
+        inside-host02:
+          ansible_host: 10.10.20.180
+  vars:
+    ansible_user: cisco

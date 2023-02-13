@@ -1,0 +1,7 @@
+---
+#main_playbook
+- name: use role data_center_pre_checks  to run playbook
+  hosts: devnetcml
+  become: true
+  roles:
+    - data_center_pre_checks

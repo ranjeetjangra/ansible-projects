@@ -1,0 +1,6 @@
+#galaxy Modules requirements for datacenter
+---
+collections:
+# With collection name
+- ansible.netcommon
+- community.routeros

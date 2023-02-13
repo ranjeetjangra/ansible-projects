@@ -1,0 +1,10 @@
+ranjeet@ranjeet-VirtualBox:~/Documents/ansible/ansible_projects/devnet-cml-lab$ ansible-playbook main_playbook.yml 
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring: devnetcml
+
+PLAY [use role data_center_pre_checks  to run playbook] ***************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP ************************************************************************************************************************
+
+
