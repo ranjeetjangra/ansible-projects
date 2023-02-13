@@ -1,0 +1,27 @@
+ranjeet@ranjeet-VirtualBox:~/Documents/ansible/ansible_projects/devnet-cml-lab$ ansible-playbook -i inventory.yml main_playbook.yml 
+
+PLAY [use role data_center_pre_checks  to run playbook] ***************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************
+fatal: [inside-host02]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.20.180 port 22: Connection timed out", "unreachable": true}
+fatal: [inside-host01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.20.179 port 22: Connection timed out", "unreachable": true}
+fatal: [internet-host01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.20.182 port 22: Connection timed out", "unreachable": true}
+fatal: [edge-firewall01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.20.171 port 22: Connection timed out", "unreachable": true}
+fatal: [edge-sw01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.20.172 port 22: Connection timed out", "unreachable": true}
+fatal: [core-rtr03]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.20.173 port 22: Connection timed out", "unreachable": true}
+fatal: [dist-rtr01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.20.175 port 22: Connection timed out", "unreachable": true}
+fatal: [core-rtr04]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.20.174 port 22: Connection timed out", "unreachable": true}
+fatal: [dist-sw01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.20.177 port 22: Connection timed out", "unreachable": true}
+fatal: [dist-rtr02]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.10.20.176 port 22: Connection timed out", "unreachable": true}
+
+PLAY RECAP ************************************************************************************************************************
+core-rtr03                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+core-rtr04                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+dist-rtr01                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+dist-rtr02                 : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+dist-sw01                  : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+edge-firewall01            : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+edge-sw01                  : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+inside-host01              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+inside-host02              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+internet-host01            : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
