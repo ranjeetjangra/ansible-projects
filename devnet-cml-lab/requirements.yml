@@ -3,4 +3,5 @@
 collections:
 # With collection name
 - ansible.netcommon
-- community.routeros
+- ansible.utils
+- community.general

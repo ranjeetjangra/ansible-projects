@@ -1,0 +1,21 @@
+---
+#Install_Dependencies
+
+- name: Installing Dependencies
+  hosts: localhost
+  tasks:
+  - name: Installing Linux APT Dependencies
+    ansible.builtin.apt:
+      name: python3-pip  
+  - name: Installing Python PIP Dependencies  
+    ansible.builtin.pip:
+      name: ansible-pylibssh
+      name: genie
+      name: ntc-templates      
+  - name: Installing Galaxy Dependencies
+    ansible.builtin.shell:
+      ansible-galaxy install -r requirements.yml
+    register: output
+  - name: Printing Output    
+    ansible.builtin.debug:
+      var: output

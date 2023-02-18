@@ -1,3 +1,0 @@
----
-# vars file for data_center_pre_checks
-ansible_user: cisco

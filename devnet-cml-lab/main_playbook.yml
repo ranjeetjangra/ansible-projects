@@ -1,7 +1,8 @@
 ---
-#main_playbook
-- name: use role data_center_pre_checks  to run playbook
-  hosts: devnetcml
+#main_playbook    
+- name: Data Center Pre_checks
+  hosts: a4n-net
   become: true
+  gather_facts: no
   roles:
     - data_center_pre_checks

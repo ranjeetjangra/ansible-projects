@@ -1,20 +1,7 @@
 ---
 # tasks file for data_center_pre_checks
+- include_vars: vars.yml
+- include_tasks: CheckPing.yml
+- include_tasks: VerifyVersion.yml
 
-- name: Checking Reachability of Hosts using PING
-  ansible.netcommon.net_ping:
-    dest: "{{ item }}"
-    state: present
-    count: 6
-  loop: "{{ group['devnetcml'] }}"
-    
-- name: Gathering  Version or OS Type
-  community.routeros.command:
-    commands:
-      - /show version 
-  register: version_output
-  
-- name: Show saved output of version
-  debug:
-    msg: "This is the gathered Version Output"
-    var: version_output.stdout_lines
+

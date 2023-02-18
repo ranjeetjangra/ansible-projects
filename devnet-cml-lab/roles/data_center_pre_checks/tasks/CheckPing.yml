@@ -1,0 +1,15 @@
+---
+# tasks file for data_center_pre_checks
+
+- name: Checking Reachability of Hosts using PING
+  ansible.builtin.ping:
+
+
+#  ansible.netcommon.net_ping:
+#    dest: "{{ item }}"
+#    state: present
+#    count: 6
+#  with_items: 
+#    - "{{ groups['a4n-net'] | map('extract',hostvars,['ansible_host']) }}"
+    
+
