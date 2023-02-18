@@ -1,0 +1,17 @@
+---
+# tasks file to Verify OS
+- name: Gathering  Version using NTC-Templates
+  ansible.utils.cli_parse:
+    command: "show version"
+    parser:
+      name: ansible.netcommon.ntc_templates
+    set_fact: version_output
+
+- name: Displaying JSON output from NTC-Template Parser
+  ansible.builtin.debug:
+    var: version_output
+
+- name: Displaying Version of Target Hosts
+  ansible.builtin.debug:
+    msg: "{{ version_output | community.general.json_query('version[0].version') }}"
+
