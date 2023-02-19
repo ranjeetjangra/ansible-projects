@@ -7,11 +7,12 @@
       name: ansible.netcommon.ntc_templates
     set_fact: version_output
 
-- name: Displaying JSON output from NTC-Template Parser
+- name: Displaying version of target Switch
   ansible.builtin.debug:
-    var: version_output
+    msg: "Version of {{ inventory_hostname }} is :  {{ version_output | community.general.json_query('[0].boot_image') }}"
+  when: '"sw" in inventory_hostname'
 
-- name: Displaying Version of Target Hosts
+- name: Displaying version of target Router
   ansible.builtin.debug:
-    msg: "{{ version_output | community.general.json_query('version[0].version') }}"
-
+    msg: "Version of {{ inventory_hostname }} is :  {{ version_output | community.general.json_query('[0].version') }}"
+  when: '"dist-rtr" in inventory_hostname'

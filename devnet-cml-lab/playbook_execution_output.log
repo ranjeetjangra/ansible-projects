@@ -1,148 +1,86 @@
-root@ranjeet-VirtualBox:/home/ranjeet/Documents/git-projects/ansible-projects/devnet-cml-lab# ansible-playbook main_playbook.yml
+ranjeet@ranjeet-VirtualBox:~/Documents/git-projects/ansible-projects/devnet-cml-lab$ sudo ansible-playbook main_playbook.yml 
 [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
 
-PLAY [Data Center Pre_checks] ********************************************************************************************************************************************
+PLAY [Data Center Pre_checks] *****************************************************************************************************
 
-TASK [data_center_pre_checks : include_vars] *****************************************************************************************************************************
-ok: [dist-rtr02]
-ok: [dist-sw01]
+TASK [data_center_pre_checks : include_vars] **************************************************************************************
 ok: [core-rtr01]
-ok: [dist-rtr01]
-ok: [dist-sw02]
-
-TASK [data_center_pre_checks : include_tasks] ****************************************************************************************************************************
-included: /home/ranjeet/Documents/git-projects/ansible-projects/devnet-cml-lab/roles/data_center_pre_checks/tasks/CheckPing.yml for dist-sw02, dist-sw01, dist-rtr01, core-rtr01, dist-rtr02
-
-TASK [data_center_pre_checks : Checking Reachability of Hosts using PING] ************************************************************************************************
-ok: [dist-sw01]
-ok: [dist-rtr02]
-ok: [dist-sw02]
-ok: [core-rtr01]
-ok: [dist-rtr01]
-
-TASK [data_center_pre_checks : include_tasks] ****************************************************************************************************************************
-included: /home/ranjeet/Documents/git-projects/ansible-projects/devnet-cml-lab/roles/data_center_pre_checks/tasks/VerifyVersion.yml for dist-sw01, dist-sw02, core-rtr01, dist-rtr01, dist-rtr02
-
-TASK [data_center_pre_checks : Gathering  Version using NTC-Templates] ***************************************************************************************************
-ok: [core-rtr01]
-ok: [dist-sw02]
 ok: [dist-rtr02]
 ok: [dist-sw01]
 ok: [dist-rtr01]
+ok: [dist-sw02]
 
-TASK [data_center_pre_checks : Displaying JSON output from NTC-Template Parser] ******************************************************************************************
+TASK [data_center_pre_checks : include_tasks] *************************************************************************************
+included: /home/ranjeet/Documents/git-projects/ansible-projects/devnet-cml-lab/roles/data_center_pre_checks/tasks/CheckPing.yml for dist-sw01, core-rtr01, dist-sw02, dist-rtr01, dist-rtr02
+
+TASK [data_center_pre_checks : Checking Reachability of Hosts using PING] *********************************************************
+ok: [dist-sw01]
+ok: [dist-rtr01]
+ok: [core-rtr01]
+ok: [dist-rtr02]
+ok: [dist-sw02]
+
+TASK [data_center_pre_checks : include_tasks] *************************************************************************************
+included: /home/ranjeet/Documents/git-projects/ansible-projects/devnet-cml-lab/roles/data_center_pre_checks/tasks/VerifyVersion.yml for dist-sw01, dist-sw02, dist-rtr01, core-rtr01, dist-rtr02
+
+TASK [data_center_pre_checks : Gathering  Version using NTC-Templates] ************************************************************
+ok: [dist-rtr01]
+ok: [dist-sw02]
+ok: [dist-sw01]
+ok: [dist-rtr02]
+ok: [core-rtr01]
+
+TASK [data_center_pre_checks : Displaying version of target Switch] ***************************************************************
+skipping: [dist-rtr01]
+skipping: [core-rtr01]
+skipping: [dist-rtr02]
 ok: [dist-sw01] => {
-    "version_output": [
-        {
-            "boot_image": "bootflash:///nxos.9.2.4.bin",
-            "hostname": "dist-sw01",
-            "last_reboot_reason": "Unknown",
-            "os": "9.2(4)",
-            "platform": "9000v",
-            "serial": "931FZVRCATA",
-            "uptime": "0 day(s), 2 hour(s), 26 minute(s), 4 second(s)"
-        }
-    ]
-}
-ok: [core-rtr01] => {
-    "version_output": [
-        {
-            "boot_image": "",
-            "hostname": "",
-            "last_reboot_reason": "",
-            "os": "",
-            "platform": "",
-            "serial": "95FECYY741R",
-            "uptime": ""
-        }
-    ]
+    "msg": "Version of dist-sw01 is :  bootflash:///nxos.9.2.4.bin"
 }
 ok: [dist-sw02] => {
-    "version_output": [
-        {
-            "boot_image": "bootflash:///nxos.9.2.4.bin",
-            "hostname": "dist-sw02",
-            "last_reboot_reason": "Unknown",
-            "os": "9.2(4)",
-            "platform": "9000v",
-            "serial": "995CHGH4W6F",
-            "uptime": "0 day(s), 2 hour(s), 25 minute(s), 51 second(s)"
-        }
-    ]
-}
-ok: [dist-rtr01] => {
-    "version_output": [
-        {
-            "config_register": "0x2102",
-            "hardware": [
-                "CSR1000V"
-            ],
-            "hostname": "dist-rtr01",
-            "mac": [],
-            "reload_reason": "factory-reset",
-            "restarted": "",
-            "rommon": "IOS-XE",
-            "running_image": "packages.conf",
-            "serial": [
-                "9V04NFOBUT9"
-            ],
-            "uptime": "2 hours, 24 minutes",
-            "uptime_days": "",
-            "uptime_hours": "2",
-            "uptime_minutes": "24",
-            "uptime_weeks": "",
-            "uptime_years": "",
-            "version": "17.3.2"
-        }
-    ]
-}
-ok: [dist-rtr02] => {
-    "version_output": [
-        {
-            "config_register": "0x2102",
-            "hardware": [
-                "CSR1000V"
-            ],
-            "hostname": "dist-rtr02",
-            "mac": [],
-            "reload_reason": "factory-reset",
-            "restarted": "",
-            "rommon": "IOS-XE",
-            "running_image": "packages.conf",
-            "serial": [
-                "9LLKEYQVDME"
-            ],
-            "uptime": "2 hours, 24 minutes",
-            "uptime_days": "",
-            "uptime_hours": "2",
-            "uptime_minutes": "24",
-            "uptime_weeks": "",
-            "uptime_years": "",
-            "version": "17.3.2"
-        }
-    ]
+    "msg": "Version of dist-sw02 is :  bootflash:///nxos.9.2.4.bin"
 }
 
-TASK [data_center_pre_checks : Displaying Version of Target Hosts] *******************************************************************************************************
+TASK [data_center_pre_checks : Displaying version of target Router] ***************************************************************
+skipping: [dist-sw02]
+skipping: [dist-sw01]
+skipping: [core-rtr01]
+ok: [dist-rtr02] => {
+    "msg": "Version of dist-rtr02 is :  17.3.2"
+}
 ok: [dist-rtr01] => {
-    "msg": ""
+    "msg": "Version of dist-rtr01 is :  17.3.2"
 }
+
+TASK [data_center_pre_checks : include_tasks] *************************************************************************************
+included: /home/ranjeet/Documents/git-projects/ansible-projects/devnet-cml-lab/roles/data_center_pre_checks/tasks/VerifyInterface.yml for dist-sw02, dist-sw01, dist-rtr01, dist-rtr02, core-rtr01
+
+TASK [data_center_pre_checks : Gathering  Interface Status using NTC-Templates] ***************************************************
+ok: [dist-sw01]
+ok: [dist-rtr02]
+fatal: [core-rtr01]: FAILED! => {"changed": false, "msg": "State Error raised. Rule Line: 13. Input Line: Interface              IP-Address      OK? Method Status                Protocol"}
+ok: [dist-sw02]
+ok: [dist-rtr01]
+
+TASK [data_center_pre_checks : Displaying Status of 1st Interface of Target Hosts] ************************************************
 ok: [dist-sw02] => {
-    "msg": ""
-}
-ok: [core-rtr01] => {
-    "msg": ""
+    "msg": "dist-sw02 : Vlan101  : admin-up"
 }
 ok: [dist-sw01] => {
-    "msg": ""
+    "msg": "dist-sw01 : Vlan101  : admin-up"
 }
 ok: [dist-rtr02] => {
-    "msg": ""
+    "msg": "dist-rtr02 : GigabitEthernet1  : up"
+}
+ok: [dist-rtr01] => {
+    "msg": "dist-rtr01 : GigabitEthernet1  : up"
 }
 
-PLAY RECAP ***************************************************************************************************************************************************************
-core-rtr01                 : ok=7    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-dist-rtr01                 : ok=7    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-dist-rtr02                 : ok=7    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-dist-sw01                  : ok=7    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-dist-sw02                  : ok=7    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
+PLAY RECAP ************************************************************************************************************************
+core-rtr01                 : ok=6    changed=0    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+dist-rtr01                 : ok=9    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+dist-rtr02                 : ok=9    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+dist-sw01                  : ok=9    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+dist-sw02                  : ok=9    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+
+

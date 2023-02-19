@@ -2,6 +2,7 @@
 #main_playbook    
 - name: Data Center Pre_checks
   hosts: a4n-net
+  strategy: linear
   become: true
   gather_facts: no
   roles:
