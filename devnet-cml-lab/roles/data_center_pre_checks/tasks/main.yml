@@ -3,5 +3,5 @@
 - include_vars: vars.yml
 - include_tasks: CheckPing.yml
 - include_tasks: VerifyVersion.yml
-
+- include_tasks: VerifyInterface.yml
 

@@ -1,0 +1,17 @@
+---
+# tasks file to Verify Interface Status
+- name: Gathering  Interface Status using NTC-Templates
+  ansible.utils.cli_parse:
+    command: "show ip interface brief"
+    parser:
+      name: ansible.netcommon.ntc_templates
+    set_fact: interface_output
+
+#- name: Displaying Interface JSON output from NTC-Template Parser
+#  ansible.builtin.debug:
+#    var: interface_output
+
+- name: Displaying Status of 1st Interface of Target Hosts
+  ansible.builtin.debug:
+    msg: "{{ inventory_hostname }} : {{ interface_output | community.general.json_query('[0].intf') }}  : {{ interface_output | community.general.json_query('[0].status') }}"
+
